@@ -1,5 +1,6 @@
 UrlShortener::Application.routes.draw do
   resources :users
+  # root to: root_path
   root to: "welcome#index"
 
   

@@ -1,5 +1,8 @@
 == README
+this will be a sinatra version of the bitly clone
+from sinatra
 
+----
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

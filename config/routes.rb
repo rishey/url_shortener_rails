@@ -12,6 +12,8 @@ UrlShortener::Application.routes.draw do
 
 
   get 'logout', to: 'users#logout'
+    # per NATE proper way to logout is set route:
+    # delete 'Logout', logout_path, :method => "delete" 
   get ':id', to: 'links#show'
   # post to: "users#login"
   root to: "welcome#index"

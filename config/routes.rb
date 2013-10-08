@@ -6,6 +6,7 @@ UrlShortener::Application.routes.draw do
   get 'login', to: 'users#login'
   post 'login', to: 'users#authenticate'
   get 'logout', to: 'users#logout'
+  get ':id', to: 'links#show'
   # post to: "users#login"
   root to: "welcome#index"
 

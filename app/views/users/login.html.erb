@@ -1,4 +1,5 @@
 <h1>Login Page</h1>
+<%= link_to 'or Create User', new_user_path %>
 <%= form_for :login, url: login_path do |f| %>
 
 <p>
@@ -15,4 +16,5 @@
 <p>
   <%= f.submit %>
 </p>
+
 <% end %>

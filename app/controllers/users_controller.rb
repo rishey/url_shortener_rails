@@ -16,14 +16,23 @@ class UsersController < ApplicationController
 
 	def login
 		puts "hi"
-
 	end
 
 	def authenticate
-		
+		session.clear
+		user = User.find_by(email: params[:login][:email]).try(:authenticate, params[:login][:password]) 
+		if user
+			session[:id]=user.id
+			redirect_to root_path
+		else
+			render 'login'
+		end
 	end
 
-
+	def logout
+		session.clear
+		redirect_to root_path
+	end
 
 	private
 		def user_params

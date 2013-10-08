@@ -7,8 +7,10 @@
 	</p>
 
 <% else %>
-	<p><%= User.find(session[:id]).name.capitalize %> is logged in.</p>
+	<% @user = User.find(session[:id]) %>
+	<p><%= @user.name.capitalize %> is logged in.</p>
 	<%= link_to 'Logout', logout_path %>
+
 <% end %>
 
 <!-- SHOW THE LINK ENTRY FORM THING -->
@@ -25,3 +27,13 @@
 
  	<% end %>
 </div>
+ <% if session[:id] %>
+		<div class="old links">other links:<br>
+			<ul>
+			<% @user.links.each do |link| %>
+			<li><%= link.original_link	 %></li>
+			<% end %>
+			</ul>
+		</div>	
+<% end %>
+

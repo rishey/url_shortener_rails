@@ -1,9 +1,12 @@
 <h1>Generic Link Shortener</h1>
 
  <% if !logged_in? %>
-	<p>
-	
+	<p>You don't have to be logged in but it would be nice.</p>
 		<%= link_to 'Login Page', login_path %><br>
 		<%= link_to 'Create User', new_user_path %>
 	</p>
+
+<% else %>
+	<p><%= current_user.name.capitalize %> is logged in.</p>
+	<%= link_to 'Logout', logout_path %>
 <% end %>

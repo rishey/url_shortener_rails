@@ -8,6 +8,8 @@ UrlShortener::Application.routes.draw do
      # nate say this is better: 
      # get “login”(.:format) => ‘sessions#new”
      # post “login”(.:format) => sessions#create
+    #FROM NATE PROPER LOGOUT: 
+    # delete 'Logout', logout_path, :method => "delete” 
 
 
 

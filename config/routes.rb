@@ -3,8 +3,14 @@ UrlShortener::Application.routes.draw do
   resources :links
   
   # root to: root_path
-  get 'login', to: 'users#login'
-  post 'login', to: 'users#authenticate'
+  get 'login', to: 'users#login'  
+  post 'login', to: 'users#authenticate'  
+     # nate say this is better: 
+     # get “login”(.:format) => ‘sessions#new”
+     # post “login”(.:format) => sessions#create
+
+
+
   get 'logout', to: 'users#logout'
   get ':id', to: 'links#show'
   # post to: "users#login"

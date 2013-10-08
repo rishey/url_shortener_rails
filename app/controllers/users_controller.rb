@@ -11,9 +11,19 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:id]=@user.id
 			redirect_to root_path
-		end
+		end	
+	end
+
+	def login
+		puts "hi"
+
+	end
+
+	def authenticate
 		
 	end
+
+
 
 	private
 		def user_params

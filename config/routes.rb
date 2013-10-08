@@ -1,7 +1,13 @@
 UrlShortener::Application.routes.draw do
   resources :users
   # root to: root_path
+  get 'login', to: 'users#login'
+  post 'login', to: 'users#authenticate'
+  # post to: "users#login"
   root to: "welcome#index"
+
+
+
 
   
   # The priority is based upon order of creation: first created -> highest priority.

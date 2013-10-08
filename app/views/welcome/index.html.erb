@@ -1,12 +1,27 @@
 <h1>Generic Link Shortener</h1>
 
- <% if !logged_in? %>
+ <% if !session[:id] %>
 	<p>You don't have to be logged in but it would be nice.</p>
 		<%= link_to 'Login Page', login_path %><br>
 		<%= link_to 'Create User', new_user_path %>
 	</p>
 
 <% else %>
-	<p><%= current_user.name.capitalize %> is logged in.</p>
+	<p><%= User.find(session[:id]).name.capitalize %> is logged in.</p>
 	<%= link_to 'Logout', logout_path %>
 <% end %>
+
+<!-- SHOW THE LINK ENTRY FORM THING -->
+
+<div class="new_link">
+	
+<%= form_for :link, url: links_path do |f| %>
+	<p>
+	<%= f.label :original_link %><br>
+	<%= f.text_field :original_link %>
+	</p>	
+
+	<p><%= f.submit %></p>
+
+ 	<% end %>
+</div>

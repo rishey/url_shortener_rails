@@ -1,5 +1,7 @@
 UrlShortener::Application.routes.draw do
   resources :users
+  resources :links
+  
   # root to: root_path
   get 'login', to: 'users#login'
   post 'login', to: 'users#authenticate'

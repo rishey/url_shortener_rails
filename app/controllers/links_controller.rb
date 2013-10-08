@@ -11,7 +11,10 @@ class LinksController < ApplicationController
 	end
 
 	def show
-		puts params.inspect
+		 @link = Link.find_by(shortened_link: params[:id])
+		 @link.counter += 1
+		 @link.save
+		 redirect_to @link.original_link
 	end
 
 
@@ -23,7 +26,7 @@ class LinksController < ApplicationController
 	  chars = 'abcdefghijklmnopqrstuvwxyzabABCDEFGHIJKLMNOPQRSTUVWXYZ123456789'
 	  shortlink = ''
 	  length.times { |char| shortlink << chars[rand(chars.length)] }
-	  return "http://localhost:3000/" + shortlink
+	  return shortlink
 	end 
 
 end
